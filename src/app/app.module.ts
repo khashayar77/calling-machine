@@ -27,13 +27,15 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { EditPageComponent } from './edit-page/edit-page.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { DepartmentDetailComponent } from './department-detail/department-detail.component';
+import { DepartmentsComponent } from './departments/departments.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-	declarations: [ AppComponent, AuthenticateComponent, EditPageComponent, SidenavComponent, UploadFileComponent ],
+	declarations: [ AppComponent, AuthenticateComponent, EditPageComponent, SidenavComponent, UploadFileComponent, DepartmentDetailComponent, DepartmentsComponent ],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
