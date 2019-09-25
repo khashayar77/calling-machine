@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { from } from 'rxjs';
+import { PeriodicElement } from '../interface/department';
 
 
 @Component({
@@ -13,30 +14,17 @@ export class DepartmentsComponent implements OnInit {
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   displayedColumns: string[] = ['id','enable','priority','department','start_working_time',
   'end_working_time', 'nwd_table_id','dialplan_context','queue','query_method','url_id',
-  'call_more', 'retry_time']
+  'call_more', 'retry_time','action'];
 
+   selectedDepartment : PeriodicElement;
+
+   onselect(id:number) { console.log(id)};
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
   }
-}
-
-export interface PeriodicElement {
-  id: number;
-  enable: number;
-  priority: number;
-  department: string;
-  start_working_time: string;
-  end_working_time: string;
-  nwd_table_id: number;
-  dialplan_context: string;
-  queue: string;
-  query_method: string;
-  url_id: number;
-  call_more: number;
-  retry_time: number;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
@@ -71,7 +59,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     retry_time: 180,
   },
   {
-    id: 1,
+    id: 2,
     enable: 1,
     priority: 7,
     department: "qm-pcs",
@@ -86,7 +74,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     retry_time: 180,
   },
   {
-    id: 1,
+    id: 3,
     enable: 1,
     priority: 7,
     department: "qm-pcs",
@@ -101,7 +89,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     retry_time: 180,
   },
   {
-    id: 1,
+    id:4,
     enable: 1,
     priority: 7,
     department: "qm-pcs",

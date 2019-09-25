@@ -17,7 +17,7 @@ import {
 	MatCardModule,
 	MatFormFieldModule,
 	MatInputModule,
-	MatTableModule
+	MatTableModule,
 } from '@angular/material';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -68,7 +68,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 		}),
 		FormsModule,
 		FileUploadModule,
-		Ng2SmartTableModule
+		Ng2SmartTableModule,
 	],
 	providers: [],
 	bootstrap: [ AppComponent ]
