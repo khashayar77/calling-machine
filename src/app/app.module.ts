@@ -30,14 +30,15 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { DepartmentsComponent } from './departments/departments.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-	declarations: [ AppComponent, AuthenticateComponent, EditPageComponent, SidenavComponent, UploadFileComponent, DepartmentDetailComponent, DepartmentsComponent, DashboardComponent ],
+
+	declarations: [ AppComponent, AuthenticateComponent, EditPageComponent, SidenavComponent, UploadFileComponent, DepartmentDetailComponent, DepartmentsComponent ],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
