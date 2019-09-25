@@ -1,5 +1,5 @@
 import { List } from "../models/list.model";
-import { AuthResponseData } from "../interface/test";
+import { User } from '../models/user.model';
 export const LISTS: List[] = [
   { listId: 1, userId: 1958, listStatus: "uncompleted", capacity: 45 },
   { listId: 2, userId: 1958, listStatus: "uncompleted", capacity: 70 },
@@ -12,12 +12,13 @@ export const LISTS: List[] = [
   { listId: 9, userId: 1970, listStatus: "uncompleted", capacity: 98 }
 ];
 
-export const MOCK_AuthResponseData: AuthResponseData = {
-  expiresIn: "sdf",
+export const MOCK_admin_user: User = {
+  id:"1",
   username: "sdf",
-  refreshToken: "sdf",
-  localId: "sdf",
-  registered:  true,
-  kind: "sdf",
-  idToken: "sdf"
+  role:"admin"
+};
+export const MOCK_operator_user: User = {
+  id:"1",
+  username: "sdf",
+  role:"operator"
 };

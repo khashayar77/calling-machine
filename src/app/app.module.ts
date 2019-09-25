@@ -31,6 +31,8 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { DepartmentsComponent } from './departments/departments.component';
+import { DashabaordComponent } from './dashabaord/dashabaord.component';
+import { LogedInGuard } from './guards/loged-in.guard';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -39,7 +41,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
 
-	declarations: [ AppComponent, AuthenticateComponent, EditPageComponent, SidenavComponent, UploadFileComponent, DepartmentDetailComponent, DepartmentsComponent ],
+	declarations: [ AppComponent, AuthenticateComponent, EditPageComponent, SidenavComponent, UploadFileComponent, DepartmentDetailComponent, DepartmentsComponent, DashabaordComponent ],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -70,7 +72,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 		FileUploadModule,
 		Ng2SmartTableModule,
 	],
-	providers: [],
+	providers: [LogedInGuard],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {}
