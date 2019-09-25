@@ -10,11 +10,11 @@ import { from } from 'rxjs';
   styleUrls: ['./departments.component.scss']
 })
 export class DepartmentsComponent implements OnInit {
-
+  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   displayedColumns: string[] = ['id','enable','priority','department','start_working_time',
   'end_working_time', 'nwd_table_id','dialplan_context','queue','query_method','url_id',
   'call_more', 'retry_time']
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 

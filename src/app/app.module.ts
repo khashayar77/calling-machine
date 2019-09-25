@@ -30,13 +30,14 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { DepartmentsComponent } from './departments/departments.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-	declarations: [ AppComponent, AuthenticateComponent, EditPageComponent, SidenavComponent, UploadFileComponent, DepartmentDetailComponent, DepartmentsComponent ],
+	declarations: [ AppComponent, AuthenticateComponent, EditPageComponent, SidenavComponent, UploadFileComponent, DepartmentDetailComponent, DepartmentsComponent, DashboardComponent ],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -50,6 +51,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 		MatCardModule,
 		MatButtonModule,
 		MatToolbarModule,
+		MatTableModule,
 		MatInputModule,
 		MatFormFieldModule,
 		MatListModule,
@@ -64,8 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 		}),
 		FormsModule,
 		FileUploadModule,
-		Ng2SmartTableModule,
-		MatTableModule
+		Ng2SmartTableModule
 	],
 	providers: [],
 	bootstrap: [ AppComponent ]
