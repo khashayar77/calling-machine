@@ -1,8 +1,30 @@
 table {
     width: 100%;
+
   }
 
 .mat-elevation-z8 th
 {
   right:30px;
+}
+
+table td
+{
+  text-align: center;
+  padding: 40px;
+
+}
+
+table th
+{
+  text-align: center;
+  padding: 35px;
+  font-weight: bold;
+  font-size: 14px;
+  color:black;
+}
+
+body
+{
+  height: 30px;
 }
