@@ -17,7 +17,9 @@ import {
 	MatCardModule,
 	MatFormFieldModule,
 	MatInputModule,
-	MatTableModule,
+  MatTableModule,
+  MatMenuModule,
+  MatSelectModule
 } from '@angular/material';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -26,7 +28,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
-import { EditPageComponent } from './edit-page/edit-page.component';
+
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
@@ -34,13 +36,14 @@ import { DepartmentsComponent } from './departments/departments.component';
 import { DashabaordComponent } from './dashabaord/dashabaord.component';
 import { LogedInGuard } from './guards/loged-in.guard';
 import { Uploadfile } from './services/upload.service';
+import { MenubarComponent } from './menubar/menubar.component';
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
 
-	declarations: [ AppComponent, AuthenticateComponent, EditPageComponent, SidenavComponent, UploadFileComponent, DepartmentDetailComponent, DepartmentsComponent, DashabaordComponent ],
+	declarations: [ AppComponent, AuthenticateComponent,  SidenavComponent, UploadFileComponent, DepartmentDetailComponent, DepartmentsComponent, DashabaordComponent, MenubarComponent ],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -59,7 +62,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 		MatFormFieldModule,
 		MatListModule,
 		FlexLayoutModule,
-		ReactiveFormsModule,
+    ReactiveFormsModule,
+    MatMenuModule,
+    MatSelectModule,
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,

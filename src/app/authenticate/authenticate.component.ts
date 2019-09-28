@@ -44,7 +44,7 @@ export class AuthenticateComponent {
         this.router.navigate(["/dashboard"]);
       },
       errorMessage => {
-        this.snackbar.open("noch", null, { duration: 999 });
+        this.snackbar.open("اطلاعات اشتباه بود", null, { duration: 999 });
         console.log(errorMessage);
       }
     );
