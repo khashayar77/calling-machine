@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, delay, map } from 'rxjs/operators';
 import { throwError, Subject, Observable, of, BehaviorSubject } from 'rxjs';
-import {  MOCK_admin_user } from '../data/list-mock';
+import {  MOCK_admin_user, MOCK_operator_user } from '../data/list-mock';
 import { User } from '../models/user.model';
 
 const LOCAL_STORAGE_KEY = 'user';
@@ -55,7 +55,9 @@ export class AuthService {
 				return this.handleAuthentication(resData);
 			})
 		);
-	}
+  }
+
+
 	private handleAuthentication(user: User) {
 		var user = new User(user);
 		this.user.next(user);

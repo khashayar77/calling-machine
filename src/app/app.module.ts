@@ -33,8 +33,7 @@ import { DepartmentDetailComponent } from './department-detail/department-detail
 import { DepartmentsComponent } from './departments/departments.component';
 import { DashabaordComponent } from './dashabaord/dashabaord.component';
 import { LogedInGuard } from './guards/loged-in.guard';
-
-
+import { Uploadfile } from './services/upload.service';
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -72,7 +71,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 		FileUploadModule,
 		Ng2SmartTableModule,
 	],
-	providers: [LogedInGuard],
+	providers: [LogedInGuard, Uploadfile],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {}

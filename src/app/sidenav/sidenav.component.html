@@ -2,6 +2,7 @@
   <mat-toolbar color="primary" class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()" *ngIf="authenticated"><mat-icon>menu</mat-icon></button>
     <h1 class="example-app-name">Calling Machine</h1>
+
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
@@ -23,7 +24,7 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <router-outlet></router-outlet>    
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
 
     </mat-sidenav-container>
