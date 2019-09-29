@@ -6,5 +6,17 @@
     "crm": "آپلود کد اشتراک",
     "Tell": "آپلود شماره تلفن",
     "save": "ثبت",
-    "Error Password": "رمز عبور صحیح نیست"
+    "Error Password": "رمز عبور صحیح نیست",
+    "Edit": "ویرایش",
+    "select files": "انتخاب فایل",
+    "Multiple": "چند تایی",
+    "Upload Queue": "صف آپلود",
+    "Name": "نام",
+    "size": "سایز",
+    "progress": "وضعیت",
+    "upload": "آپلود",
+    "cancel": "لغو",
+    "UploadAll": "آپلود همه",
+    "Cancel All": "لغو همه",
+    "Logout": "خروج"
 }

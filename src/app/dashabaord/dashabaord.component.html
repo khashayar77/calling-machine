@@ -21,7 +21,7 @@
       </mat-menu>
 
 
-      <button mat-button [routerLink]="['/login']" routerLinkActive="router-link-active" >{{'login' | translate}}</button>
+      <button mat-button  [routerLink]="['/login']" routerLinkActive="router-link-active" >{{'login' | translate}}</button>
       <mat-menu #afterMenu="matMenu" xPosition="after">
         <!-- <button mat-menu-item>Item 1</button>
         <button mat-menu-item>Item 2</button> -->
@@ -35,11 +35,13 @@
       </mat-menu>
 
 
-       <div fxFlex></div>
-
-      <h1 fxFlex="nogrow">Calling Machine</h1>
-
+    <div fxFlex></div>
+    <mat-card-actions>
+     <button mat-button  color="accent"><i style="margin-right:15px;"  id="icon" class="material-icons" fxFlex="nogrow">person</i></button>
+    </mat-card-actions>
     </div>
 
 
   </div>
+
+

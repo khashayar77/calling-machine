@@ -16,6 +16,7 @@ export class AuthenticateComponent {
   formGroup: FormGroup;
 
 
+
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -32,6 +33,9 @@ export class AuthenticateComponent {
       ])
     });
   }
+
+
+
 
   submit() {
     if (this.formGroup.invalid)

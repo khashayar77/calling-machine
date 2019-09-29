@@ -19,7 +19,8 @@ import {
 	MatInputModule,
   MatTableModule,
   MatMenuModule,
-  MatSelectModule
+  MatSelectModule,
+  MatBottomSheetModule
 } from '@angular/material';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -65,6 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     MatMenuModule,
     MatSelectModule,
+    MatBottomSheetModule,
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,

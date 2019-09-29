@@ -12,7 +12,7 @@ import { PeriodicElement } from '../interface/department';
 })
 export class DepartmentsComponent implements OnInit {
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  displayedColumns: string[] = ['id','enable','priority','department','start_working_time',
+  displayedColumns: string[] = ['enable','priority','department','start_working_time',
   'end_working_time', 'nwd_table_id','dialplan_context','queue','query_method','url_id',
   'call_more', 'retry_time','action'];
 
