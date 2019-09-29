@@ -1,9 +1,10 @@
 {
     "login": "ورود",
-    "Add list Number": "اپلود فایل ",
+    "Add list Number": "آپلود فایل ",
     "department": "دپارتمان",
     "Dashboard": "داشبورد",
     "crm": "آپلود کد اشتراک",
     "Tell": "آپلود شماره تلفن",
-    "save": "ثبت"
+    "save": "ثبت",
+    "Error Password": "رمز عبور صحیح نیست"
 }

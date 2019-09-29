@@ -10,7 +10,7 @@ import { DashabaordComponent } from './dashabaord/dashabaord.component';
 import { MenubarComponent } from './menubar/menubar.component';
 
 const routes: Routes = [
-	{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+	{ path: '', redirectTo: '/login', pathMatch: 'full' },
 	{
 		path: 'dashboard',
 		component: DashabaordComponent,
