@@ -38,7 +38,8 @@
       <button type="button" (click)="submit()" mat-raised-button color="primary">{{'login' | translate}}</button>
 
     </mat-card-actions>
-    <button mat-button type="button" color="warn">{{'Logout' | translate}}</button>
+
+    <button mat-button type="button" color="warn" *ngIf="">{{'Logout' | translate}}</button>
 
   </mat-card>
 

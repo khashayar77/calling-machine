@@ -14,7 +14,7 @@ const LOCAL_STORAGE_KEY = 'user';
 export class AuthService {
 	user = new BehaviorSubject<User>(null);
 
-	constructor(private http: HttpClient) {
+	constructor(private http: HttpClient, private router: Router) {
 
     debugger;
     var stringified_user = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -44,15 +44,13 @@ export class AuthService {
 	// }
 
 
-  logout({username, password}: { username: string; password: string }): Observable<User> {
+  logout(){
     localStorage.removeItem(LOCAL_STORAGE_KEY);
-    return of(MOCK_admin_user as User).pipe(delay(333)).pipe(
-      catchError(this.handleError),
-      map((resData) => {
-        return this.handleAuthentication(resData);
-      })
-    );
+    this.router.navigate(['/login']);
   }
+
+
+
 
 	login({ username, password }: { username: string; password: string }): Observable<User> {
 		// return this.http

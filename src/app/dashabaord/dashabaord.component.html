@@ -27,6 +27,8 @@
         <button mat-menu-item>Item 2</button> -->
       </mat-menu>
 
+      <button mat-button (click)="logout()">{{'logout' | translate}}</button>
+
 
       <button mat-button [matMenuTriggerFor]="aboveMenu" [routerLink]="['/insert']" routerLinkActive="router-link-active">{{'Add list Number' | translate}}</button>
       <mat-menu #aboveMenu="matMenu" yPosition="above">
