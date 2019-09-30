@@ -51,6 +51,7 @@ export class AuthService {
 
   logout()  {
     localStorage.removeItem(LOCAL_STORAGE_KEY);
+    this.user.next(null);
     this.router.navigate(['/login']);
   }
 
