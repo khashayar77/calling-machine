@@ -36,11 +36,11 @@
                             </mat-form-field>
 
                             <mat-form-field fxFlex>
-                                <input type="text"  matInput placeholder="Start working time" formControlName="start_working_time">
+                                <input type="time"  matInput placeholder="Start working time" formControlName="start_working_time">
                             </mat-form-field>
 
                             <mat-form-field fxFlex>
-                                <input type="text"  matInput placeholder="End working time" formControlName="end_working_time">
+                                <input type="time"  matInput placeholder="End working time" formControlName="end_working_time">
                             </mat-form-field>
 
                 </div>
@@ -67,7 +67,7 @@
                             </mat-form-field>
 
                             <mat-form-field fxFlex>
-                                <input type="text"  matInput placeholder="retry_time" formControlName="retry_time">
+                                <input type="time"  matInput placeholder="retry_time" formControlName="retry_time">
                             </mat-form-field>
                 </div>
             </form>
@@ -76,28 +76,7 @@
          <button type="button" (click)="edit()" mat-raised-button color="primary">{{'save' | translate}}</button>
           </mat-card-actions>
     </mat-card>
-</div><br/>
+</div>
 
-<!-- version 2 department detail -->
-
-
-<mat-card>
-  <mat-card-header>
-    <mat-card-title></mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-      <div class="container" fxLayout="row" fxLayoutAlign="center center">
-          <form class="demo-form" fxLayout="column">
-            <material-timepicker color="primary"
-            label="Start working Time"
-            [userTime]="exportTime"
-            (change)="onChangeHour($event)"
-            revertLabel="Ok"></material-timepicker>
-          </form>
-        </div>
-
-  </mat-card-content>
-
-</mat-card>
 
 
