@@ -15,7 +15,7 @@ export class DashabaordComponent implements OnInit {
   ngOnInit() {
   }
 
-  logout(){
+  logout() {
     this.authService.logout();
   }
 

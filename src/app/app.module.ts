@@ -20,8 +20,10 @@ import {
   MatTableModule,
   MatMenuModule,
   MatSelectModule,
-  MatBottomSheetModule
+  MatBottomSheetModule,
+  MatTooltipModule
 } from '@angular/material';
+import { MaterialTimePickerModule } from '@candidosales/material-time-picker';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -67,6 +69,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatMenuModule,
     MatSelectModule,
     MatBottomSheetModule,
+    MatTooltipModule,
+    MaterialTimePickerModule,
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,
