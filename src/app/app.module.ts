@@ -73,6 +73,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatBottomSheetModule,
     MatTooltipModule,
     MaterialTimePickerModule,
+
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,
