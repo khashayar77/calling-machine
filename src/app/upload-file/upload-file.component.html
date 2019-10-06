@@ -1,5 +1,10 @@
+<!-- <div class="main" fxLayout>
+    <mat-checkbox>{{'crm' | translate}}</mat-checkbox>
+    <mat-checkbox>{{'Tell' | translate}}</mat-checkbox>
+</div> -->
+
 <div fxLayout="row" fxLayoutAlign="space-evenly center">
-  <div fxLayout="30px;">
+  <div fxLayout="30px">
       <div fxLayout="column"  fxLayoutAlign="space-evenly stretch">
 
           <h1>{{'select files' | translate}}</h1>
@@ -67,10 +72,7 @@
                               (click)="item.cancel()" [disabled]="!item.isUploading">
                           <span class="glyphicon glyphicon-ban-circle"></span> {{'cancel' | translate}}
                       </button>
-                      <!-- <button mat-button type="button" class="btn btn-danger btn-xs"
-                              (click)="item.remove()">
-                          <span class="glyphicon glyphicon-trash"></span> {{'Remove' | translate}}
-                      </button> -->
+
                   </td>
               </tr>
               </tbody>

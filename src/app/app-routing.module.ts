@@ -7,12 +7,13 @@ import { DepartmentDetailComponent } from './department-detail/department-detail
 import * as user from 'src/app/shared/users.json';
 import { LogedInGuard } from './guards/loged-in.guard';
 import { DashabaordComponent } from './dashabaord/dashabaord.component';
-import { MenubarComponent } from './menubar/menubar.component';
 import { DashabaordGuard } from './guards/dashboard.guard';
 import { LayoutComponent } from './layout/layout.component';
+import { AddComponent } from './add/add.component';
+
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
     path: 'login',
     component: AuthenticateComponent
@@ -21,7 +22,7 @@ const routes: Routes = [
 		path: '',
 		component: LayoutComponent,
     canActivate: [ LogedInGuard ],
-    children:[
+    children: [
       {
         path: 'dashboard',
         component: DashabaordComponent
@@ -37,7 +38,12 @@ const routes: Routes = [
       {
         path: 'department/:id/edit',
         component: DepartmentDetailComponent
+      },
+      {
+        path: 'department/:id/Add',
+        component: AddComponent
       }
+
     ]
 	}
 

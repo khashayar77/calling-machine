@@ -3,24 +3,22 @@ import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { AuthService } from '../services/auth.service';
 import { MatSnackBar } from '@angular/material';
+import { PeriodicElement } from '../interface/department';
 
 
 export interface Num {
   value: string;
   viewValue: string;
 }
-
 @Component({
-  selector: 'app-department-detail',
-  templateUrl: './department-detail.component.html',
-  styleUrls: ['./department-detail.component.scss']
+  selector: 'app-add',
+  templateUrl: './add.component.html',
+  styleUrls: ['./add.component.scss']
 })
-export class DepartmentDetailComponent  {
-
+export class AddComponent {
 
   name = 'Angular';
   private exportTime = { hour: 7, minute: 15, meriden: 'PM', format: 24 };
-
   onChangeHour(event) {
     console.log('event', event);
   }
@@ -70,3 +68,6 @@ export class DepartmentDetailComponent  {
 		);
 	}
 }
+
+
+

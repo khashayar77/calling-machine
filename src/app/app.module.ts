@@ -33,22 +33,21 @@ import { AppComponent } from './app.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 import { UploadFileComponent } from './upload-file/upload-file.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { DashabaordComponent } from './dashabaord/dashabaord.component';
 import { LogedInGuard } from './guards/loged-in.guard';
 import { Uploadfile } from './services/upload.service';
-import { MenubarComponent } from './menubar/menubar.component';
 import { DashabaordGuard } from './guards/dashboard.guard';
 import { LayoutComponent } from './layout/layout.component';
+import { AddComponent } from './add/add.component';
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
 
-	declarations: [ AppComponent, AuthenticateComponent,  SidenavComponent, UploadFileComponent, DepartmentDetailComponent, DepartmentsComponent, DashabaordComponent, MenubarComponent, LayoutComponent ],
+	declarations: [ AppComponent, AuthenticateComponent, UploadFileComponent, DepartmentDetailComponent, DepartmentsComponent, DashabaordComponent, LayoutComponent, AddComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,

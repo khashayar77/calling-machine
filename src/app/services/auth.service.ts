@@ -62,6 +62,7 @@ export class AuthService {
 		//   .post<User>("URL", { username,password,returnSecureToken: true})
 		return of(MOCK_admin_user as User).pipe(delay(333)).pipe(
 			catchError(this.handleError),
+
 			map((resData) => {
 				return this.handleAuthentication(resData);
 			})
