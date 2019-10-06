@@ -23,39 +23,40 @@ import {
 	MatBottomSheetModule,
 	MatTooltipModule
 } from '@angular/material';
-import { MaterialTimePickerModule } from '@candidosales/material-time-picker';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FileUploadModule } from 'ng2-file-upload';
 
-import { AppComponent } from './app.component';
-import { AuthenticateComponent } from './authenticate/authenticate.component';
 
-import { UploadFileComponent } from './upload-file/upload-file.component';
-import { DepartmentDetailComponent } from './department-detail/department-detail.component';
+import { AppComponent } from './app.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UplaodListComponent } from './uplaod-list/uplaod-list.component';
 import { DepartmentsComponent } from './departments/departments.component';
-import { DashabaordComponent } from './dashabaord/dashabaord.component';
+import { CallingListsComponent } from './calling-lists/calling-lists.component';
 import { LogedInGuard } from './guards/loged-in.guard';
-import { LayoutComponent } from './layout/layout.component';
-import { AddComponent } from './add/add.component';
+import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
+import { Error404Component } from './error404/error404.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		AuthenticateComponent,
-		UploadFileComponent,
-		DepartmentDetailComponent,
-		DepartmentsComponent,
-		DashabaordComponent,
-		LayoutComponent,
-		AddComponent
-	],
-	imports: [
+  declarations: [
+    AppComponent,
+    ToolbarComponent,
+    LoginComponent,
+    DashboardComponent,
+    UplaodListComponent,
+    DepartmentsComponent,
+    CallingListsComponent,
+    DepartmentDetailComponent,
+    Error404Component
+  ],
+  imports: [
 		BrowserModule,
 		AppRoutingModule,
 		FormsModule,
@@ -78,7 +79,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 		MatSelectModule,
 		MatBottomSheetModule,
 		MatTooltipModule,
-		MaterialTimePickerModule,
 
 		TranslateModule.forRoot({
 			loader: {

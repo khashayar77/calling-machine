@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanActivate, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
-	providedIn: 'root'
+  providedIn: 'root'
 })
 export class LogedInGuard implements CanActivate {
 
@@ -14,9 +15,3 @@ export class LogedInGuard implements CanActivate {
     return this.authService.user.getValue() != null ? true : this.router.parseUrl('/login');
   }
 }
-
-
-
-
-
-

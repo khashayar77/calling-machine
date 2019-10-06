@@ -5,14 +5,17 @@ import { throwError, Subject, Observable, of, BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { environment } from 'src/environments/environment';
-import { MOCK_admin_user, MOCK_operator_user } from '../data/list-mock';
-import { User } from '../models/user.model';
+import { MOCK_admin_user, MOCK_operator_user } from '../mocks/roles';
+import { User } from '../datamodels';
 
+
+const LOCAL_STORAGE_KEY = 'user';
 
 @Injectable({
-	providedIn: 'root'
+  providedIn: 'root'
 })
 export class AuthService {
+
 	user = new BehaviorSubject<User>(null);
 
 	constructor(private http: HttpClient, private router: Router) {
