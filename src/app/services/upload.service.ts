@@ -19,10 +19,10 @@ export class Uploadfile
 
   constructor( private http: HttpClient )
   {
-    var stringified_upload = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if(stringified_upload)
+    var stringifiedUpload = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if(stringifiedUpload)
     {
-      const Upload = JSON.parse(stringified_upload);
+      const Upload = JSON.parse(stringifiedUpload);
       this.Upload.next(Upload);
     }
 

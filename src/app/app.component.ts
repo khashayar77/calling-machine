@@ -10,10 +10,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
 	constructor(private translateSerive: TranslateService) {
-		this.translateSerive.setDefaultLang("fa");
+		this.translateSerive.setDefaultLang('fa');
 	}
-
-	ngOnInit() {}
 
 	onCreatePost(postData: { title: string; content: string }) {
 		console.log(postData);

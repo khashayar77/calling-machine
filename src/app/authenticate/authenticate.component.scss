@@ -1,28 +1,7 @@
 .container {
-  height: calc(100vh - 64px)
+	height: calc(100vh - 64px);
+
+	img {
+		margin-top: 25px;
+	}
 }
-
-mat-form-field input
-{
-  margin-bottom:5px;
-}
-
-mat-card
-{
- border:1px solid lightgray;
- padding: 70px;
- border-radius: 9px;
-}
-
-
-*
-{
-  font-family: 'IranianSansRegular';
-}
-
-.mat-raised-button
-{
-  padding: 4px 3px;
-}
-
-

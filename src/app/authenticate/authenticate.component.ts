@@ -1,56 +1,37 @@
-import { Component } from "@angular/core";
-import { NgForm, FormGroup, FormControl, Validators } from "@angular/forms";
-import { Observable } from "rxjs";
-
-
-import { AuthService } from "../services/auth.service";
-import { MatSnackBar } from "@angular/material";
+import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 
+import { AuthService } from '../services';
+
 @Component({
-  selector: "app-authenticate",
-  templateUrl: "./authenticate.component.html",
-  styleUrls: ["./authenticate.component.scss"]
+	selector: 'app-authenticate',
+	templateUrl: './authenticate.component.html',
+	styleUrls: [ './authenticate.component.scss' ]
 })
 export class AuthenticateComponent {
-  formGroup: FormGroup;
+	formGroup: FormGroup;
 
+	constructor(private router: Router, private authService: AuthService, private snackbar: MatSnackBar) {
+		this.formGroup = this.create_form_group();
+	}
 
+	private create_form_group() {
+		return new FormGroup({
+			username: new FormControl('', [ Validators.required, Validators.minLength(6), Validators.maxLength(15) ]),
+			password: new FormControl('', [ Validators.required, Validators.minLength(8), Validators.maxLength(15) ])
+		});
+	}
 
-  constructor(
-    private router: Router,
-    private authService: AuthService,
-    private snackbar: MatSnackBar
-  ) {
-    this.formGroup = new FormGroup({
-      username: new FormControl("", [
-        Validators.required,
-        Validators.minLength(3)
-      ]),
-      password: new FormControl("", [
-        Validators.required,
-        Validators.minLength(8)
-      ])
-    });
-  }
+	submit() {
+		if (this.formGroup.invalid) {
+			return this.snackbar.open('اطلاعات صحیح نیست', null, { duration: 999 });
+		}
 
-
-
-
-  submit() {
-    if (this.formGroup.invalid)
-      return this.snackbar.open("اطلاعات صحیح نیست", null, { duration: 999 });
-
-    this.authService.login(this.formGroup.value).subscribe(
-      resData => {
-        debugger;
-        this.snackbar.open("به پنل خوش آمدید", null, { duration: 2222 });
-        this.router.navigate(["/dashboard"]);
-      },
-      errorMessage => {
-        this.snackbar.open("اطلاعات اشتباه بود", null, { duration: 999 });
-        console.log(errorMessage);
-      }
-    );
-  }
+		this.authService.login(this.formGroup.value).subscribe(() => {
+			this.snackbar.open('به پنل خوش آمدید', null, { duration: 2222 });
+			this.router.navigate([ '/dashboard' ]);
+		});
+	}
 }
