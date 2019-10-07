@@ -9,47 +9,37 @@ import { UplaodListComponent } from './uplaod-list/uplaod-list.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { Error404Component } from './error404/error404.component';
-import { AddComponent } from './add/add.component';
+
 
 const routes: Routes = [
-	{ path: '', redirectTo: '/login', pathMatch: 'full' },
-	{ path: 'login', component: LoginComponent },
-	{
-		path: '',
-		component: ToolbarComponent,
-		canActivate: [ LogedInGuard ],
-		children: [
-			{
-				path: 'dashboard',
-				component: DashboardComponent
-			},
-			{
-				path: 'callingLists',
-				component: CallingListsComponent
-			},
-			{
-				path: 'departments',
-				component: DepartmentsComponent
-			},
-			{
-				path: 'uploadList',
-				component: UplaodListComponent
-			},
-			{
-				path: 'department/:id/edit',
-				component: DepartmentDetailComponent
-			},
-			{
-				path: 'department/:id/Add',
-				component: AddComponent
-			}
-		]
-	},
-	{ path: '**', component: Error404Component }
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent},
+  { path: '', component: ToolbarComponent, canActivate: [ LogedInGuard ],
+  children:[
+    {
+      path: 'dashboard',
+      component: DashboardComponent
+    },
+    { path: 'callingLists', 
+      component: CallingListsComponent
+    },
+    { path: 'departments', 
+      component: DepartmentsComponent
+    },
+    { path: 'uploadList',
+      component: UplaodListComponent
+    },
+    {
+      path: 'department/:id/edit',
+      component: DepartmentDetailComponent
+    },
+  ]
+},
+{ path: '**', component: Error404Component },
 ];
 
 @NgModule({
-	imports: [ RouterModule.forRoot(routes) ],
-	exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
