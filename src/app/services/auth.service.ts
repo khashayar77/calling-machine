@@ -8,14 +8,12 @@ import { environment } from 'src/environments/environment';
 import { MOCK_admin_user, MOCK_operator_user } from '../mocks/roles';
 import { User } from '../datamodels';
 
-
 const LOCAL_STORAGE_KEY = 'user';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class AuthService {
-
 	user = new BehaviorSubject<User>(null);
 
 	constructor(private http: HttpClient, private router: Router) {
@@ -26,8 +24,7 @@ export class AuthService {
 		}
 
 		this.user.subscribe((user) => {
-      if (user)
-        localStorage.setItem(environment.LOCAL_STORAGE_KEY, JSON.stringify(user));
+			if (user) localStorage.setItem(environment.LOCAL_STORAGE_KEY, JSON.stringify(user));
 			else localStorage.removeItem(environment.LOCAL_STORAGE_KEY);
 		});
 	}

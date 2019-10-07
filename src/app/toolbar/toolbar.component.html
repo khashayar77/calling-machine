@@ -4,7 +4,7 @@
     <button mat-button routerLink="/departments" routerLinkActive="router-link-active">{{'Departments'|translate}}</button>
     <button mat-button routerLink="/uploadList" routerLinkActive="router-link-active">{{'Upload List'|translate}}</button>
     <div fxFlex></div>
-    <button mat-icon-button aria-label="Button that displays a tooltip when focused or hovered over" (click)="logout()" routerLinkActive="router-link-active" fxFlex="nogrow">
+    <button mat-icon-button aria-label="Button that displays a tooltip when focused or hovered over" matTooltip="خروج"   aria-label="Button that displays a tooltip when focused or hovered over" (click)="logout()" routerLinkActive="router-link-active" fxFlex="nogrow">
         {{'Logout'|translate}} <mat-icon>account_circle</mat-icon>
     </button>
 
