@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { AuthService } from '../services/auth.service';
 import { MatSnackBar } from '@angular/material';
@@ -14,15 +14,11 @@ export interface Num {
 	templateUrl: './add-departments.component.html',
 	styleUrls: [ './add-departments.component.scss' ]
 })
-export class AddDepartmentsComponent implements OnInit {
-	ngOnInit(): void {
-		throw new Error('Method not implemented.');
-	}
-	// tslint:disable-next-line: member-ordering
+export class AddDepartmentsComponent {
 	num: Num[] = [ { value: '1', viewValue: '1' }, { value: '2', viewValue: '2' } ];
 
 	formGroup: FormGroup;
-	constructor(private authService: AuthService, private snackbar: MatSnackBar) {
+	constructor(private snackbar: MatSnackBar) {
 		this.formGroup = new FormGroup({
 			enable: new FormControl('1', [ Validators.required ]),
 			priority: new FormControl('', [ Validators.required ]),
@@ -40,19 +36,8 @@ export class AddDepartmentsComponent implements OnInit {
 	edit() {
 		if (this.formGroup.invalid) {
 			return this.snackbar.open(' اطلاعات کامل نیست', null, { duration: 999 });
-		} else {
-			this.formGroup.valid;
 		}
-		return this.snackbar.open('اطلاعات ثبت شد ', null, { duration: 999 });
 
-		this.authService.login(this.formGroup.value).subscribe(
-			(resData) => {
-				console.log(resData);
-			},
-			(errorMessage) => {
-				this.snackbar.open('noch', null, { duration: 999 });
-				console.log(errorMessage);
-			}
-		);
+		return this.snackbar.open('اطلاعات ثبت شد ', null, { duration: 999 });
 	}
 }

@@ -6,13 +6,15 @@ import {
 	MatOptionModule,
 	MatSelectModule,
 	MatFormFieldModule,
-	MatSnackBarModule
+	MatSnackBarModule,
+	MatInputModule
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AddDepartmentsComponent', () => {
 	let component: AddDepartmentsComponent;
@@ -26,6 +28,8 @@ describe('AddDepartmentsComponent', () => {
 					ReactiveFormsModule,
 					MatOptionModule,
 					MatSelectModule,
+					MatInputModule,
+					BrowserAnimationsModule,
 					MatFormFieldModule,
 					TranslateModule.forRoot(),
 					HttpClientModule,
