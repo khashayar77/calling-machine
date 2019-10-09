@@ -39,6 +39,7 @@ import { LogedInGuard } from './guards/loged-in.guard';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { Error404Component } from './error404/error404.component';
+import { AddDepartmentsComponent } from './add-departments/add-departments.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -54,7 +55,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DepartmentsComponent,
     CallingListsComponent,
     DepartmentDetailComponent,
-    Error404Component
+    Error404Component,
+    AddDepartmentsComponent
   ],
   imports: [
 		BrowserModule,
