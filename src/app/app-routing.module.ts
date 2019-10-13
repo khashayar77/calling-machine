@@ -41,7 +41,7 @@ const routes: Routes = [
 				component: DepartmentDetailComponent
 			},
 			{
-				path: 'department/Add',
+				path: 'departments/Add',
 				component: AddDepartmentsComponent
 			},
 			{
