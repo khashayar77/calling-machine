@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { AuthService } from '../services/auth.service';
 import { MatSnackBar } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
+import { pluck } from 'rxjs/operators';
 
 export interface Num {
 	value: string;
@@ -13,12 +15,16 @@ export interface Num {
 	templateUrl: './department-detail.component.html',
 	styleUrls: [ './department-detail.component.scss' ]
 })
-export class DepartmentDetailComponent {
+export class DepartmentDetailComponent implements OnInit {
 	// tslint:disable-next-line: member-ordering
 	num: Num[] = [ { value: '0', viewValue: '0' }, { value: '1', viewValue: '1' } ];
 
 	formGroup: FormGroup;
-	constructor(private authService: AuthService, private snackbar: MatSnackBar) {
+	snackbar: any;
+	constructor(
+		private authService: AuthService,
+		private router: ActivatedRoute // private snackbar: MatSnackBar, // private snackbar: MatSnackBar
+	) {
 		this.formGroup = new FormGroup({
 			enable: new FormControl('1', [ Validators.required ]),
 			priority: new FormControl('', [ Validators.required ]),
@@ -33,6 +39,11 @@ export class DepartmentDetailComponent {
 			retry_time: new FormControl('')
 		});
 	}
+
+	ngOnInit() {
+		this.router.params.pipe(pluck('id')).subscribe((id) => {});
+	}
+
 	edit() {
 		if (this.formGroup.invalid) {
 			return this.snackbar.open(' اطلاعات کامل نیست', null, { duration: 999 });

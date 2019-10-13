@@ -10,6 +10,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { Error404Component } from './error404/error404.component';
 import { AddDepartmentsComponent } from './add-departments/add-departments.component';
+import { UpListsComponent } from './up-lists/up-lists.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -40,8 +41,12 @@ const routes: Routes = [
 				component: DepartmentDetailComponent
 			},
 			{
-				path: 'department/:id/Add',
+				path: 'department/Add',
 				component: AddDepartmentsComponent
+			},
+			{
+				path: 'UpLists',
+				component: UpListsComponent
 			}
 		]
 	},
