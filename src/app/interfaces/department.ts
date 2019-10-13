@@ -1,5 +1,4 @@
 export interface Department {
-	info: string;
 	id: number;
 	priority: number;
 	department: string;

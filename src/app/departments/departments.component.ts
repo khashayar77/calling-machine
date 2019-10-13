@@ -13,7 +13,6 @@ export class DepartmentsComponent implements OnInit {
 	dataSource = new MatTableDataSource<Department>(ELEMENT_DATA);
 	// tslint:disable-next-line: max-line-length
 	displayedColumns: string[] = [
-		'info',
 		'priority',
 		'department',
 		'start_working_time',
@@ -41,7 +40,6 @@ export class DepartmentsComponent implements OnInit {
 
 const ELEMENT_DATA: Department[] = [
 	{
-		info: 'jafarian',
 		id: 1,
 		priority: 7,
 		department: 'qm-pcs',
@@ -54,7 +52,6 @@ const ELEMENT_DATA: Department[] = [
 		retry_time: 180
 	},
 	{
-		info: 'jafarian',
 		id: 1,
 		priority: 7,
 		department: 'qm-pcs',
@@ -68,7 +65,6 @@ const ELEMENT_DATA: Department[] = [
 		retry_time: 180
 	},
 	{
-		info: 'jafarian',
 		id: 2,
 		priority: 7,
 		department: 'qm-pcs',
@@ -82,7 +78,6 @@ const ELEMENT_DATA: Department[] = [
 		retry_time: 180
 	},
 	{
-		info: 'jafarian',
 		id: 3,
 		priority: 7,
 		department: 'qm-pcs',
@@ -96,7 +91,6 @@ const ELEMENT_DATA: Department[] = [
 		retry_time: 180
 	},
 	{
-		info: 'jafarian',
 		id: 4,
 		priority: 7,
 		department: 'qm-pcs',

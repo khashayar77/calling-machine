@@ -26,7 +26,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
 				}
 				window.alert(errorMessage);
 
-				// this.snackbar.open('اطلاعات اشتباه بود', null, { duration: 999 });
+				//this.snackbar.open('اطلاعات اشتباه بود', null, { duration: 999 });
 
 				return throwError(errorMessage);
 			})
