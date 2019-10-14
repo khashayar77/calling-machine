@@ -4,13 +4,11 @@ import { FileUploader } from 'ng2-file-upload';
 function readBase64(file): Promise<any> {
   const reader = new FileReader();
   const future = new Promise((resolve, reject) => {
-    // tslint:disable-next-line: only-arrow-functions
-    reader.addEventListener('load', function () {
+    reader.addEventListener('load', () => {
       resolve(reader.result);
     }, false);
 
-    // tslint:disable-next-line: only-arrow-functions
-    reader.addEventListener('error', function (event) {
+    reader.addEventListener('error', (event) => {
       reject(event);
     }, false);
 
@@ -53,7 +51,7 @@ export class UplaodListComponent {
 
     readBase64(file)
       // tslint:disable-next-line: only-arrow-functions
-      .then(function (data) {
+      .then((data) => {
         console.log(data);
       });
 
