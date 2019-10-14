@@ -1,15 +1,17 @@
 import {
-	HttpEvent,
-	HttpInterceptor,
-	HttpHandler,
-	HttpRequest,
-	HttpResponse,
-	HttpErrorResponse
+  HttpEvent,
+  HttpInterceptor,
+  HttpHandler,
+  HttpRequest,
+  HttpResponse,
+  HttpErrorResponse
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
 export class HttpErrorInterceptor implements HttpInterceptor {
+<<<<<<< HEAD
+	snackbar: any;
 	intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 		return next.handle(request).pipe(
 			retry(1),
@@ -26,10 +28,30 @@ export class HttpErrorInterceptor implements HttpInterceptor {
 				}
 				window.alert(errorMessage);
 
-				// this.snackbar.open('اطلاعات اشتباه بود', null, { duration: 999 });
+				this.snackbar.open('اطلاعات اشتباه بود', null, { duration: 999 });
+=======
+  snackbar: any;
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    return next.handle(request).pipe(
+      retry(1),
+      catchError((error: HttpErrorResponse) => {
+        // tslint:disable-next-line: no-debugger
+        debugger;
+        let errorMessage = '';
+        if (error.error instanceof ErrorEvent) {
+          // client-side error
+          errorMessage = `Error: ${error.error.message}`;
+        } else {
+          // server-side error
+          errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+        }
+        window.alert(errorMessage);
 
-				return throwError(errorMessage);
-			})
-		);
-	}
+        this.snackbar.open('اطلاعات اشتباه بود', null, { duration: 999 });
+>>>>>>> ad7f55824b6682c056d3583a94b674dc03ece6c9
+
+        return throwError(errorMessage);
+      })
+    );
+  }
 }
