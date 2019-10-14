@@ -1,7 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+<<<<<<< HEAD
+import { MatTableDataSource } from '@angular/material/table';
+import { List } from '../interfaces/list';
+=======
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { CallResult } from '../interfaces/CallResult';
+>>>>>>> e78d1f841f5a24d6c9175298d7a2ffb8ed7a6530
 
 @Component({
 	selector: 'app-calling-lists',
@@ -9,6 +14,29 @@ import { CallResult } from '../interfaces/CallResult';
 	styleUrls: [ './calling-lists.component.scss' ]
 })
 export class CallingListsComponent implements OnInit {
+<<<<<<< HEAD
+  // tslint:disable-next-line: no-use-before-declare
+  dataSource = new MatTableDataSource<List>(ELEMENT_DATA);
+  // tslint:disable-next-line: max-line-length
+  displayedColumns: string[] = [
+    'CustomerID',
+    'department',
+    'URL_id',
+    'numberOfCall',
+    'numberOfDailed',
+    'status',
+    'action'
+  ];
+
+  selectedDepartment: List;
+
+  @ViewChild(MatPaginator, { static: true })
+  paginator: MatPaginator;
+
+  onselect(id: number) {
+    console.log(id);
+  }
+=======
 	dataSource = new MatTableDataSource<CallResult>(ELEMENT_DATA);
 	displayedColumns: string[] = [
 		'Customer_ID',
@@ -32,6 +60,7 @@ export class CallingListsComponent implements OnInit {
 	onselect(id: number) {
 		console.log(id);
 	}
+>>>>>>> e78d1f841f5a24d6c9175298d7a2ffb8ed7a6530
 
 	@ViewChild(MatPaginator, { static: true })
 	paginator: MatPaginator;
@@ -45,6 +74,25 @@ export class CallingListsComponent implements OnInit {
 	}
 }
 
+<<<<<<< HEAD
+const ELEMENT_DATA: List[] = [
+  {
+    CustomerID: 1,
+    department: 'qm-pcs',
+    URL_id: 122,
+    numberOfCall: 1500,
+    numberOfDailed: 500,
+    status: 'run'
+  },
+  {
+    CustomerID: 2,
+    department: 'qm-pcs',
+    URL_id: 234,
+    numberOfCall: 3000,
+    numberOfDailed: 1000,
+    status: 'run'
+  }
+=======
 const ELEMENT_DATA: CallResult[] = [
 	{
 		Customer_ID: 4585545,
@@ -72,4 +120,5 @@ const ELEMENT_DATA: CallResult[] = [
 		Call_Duration: 50,
 		Info1: ''
 	}
+>>>>>>> e78d1f841f5a24d6c9175298d7a2ffb8ed7a6530
 ];
