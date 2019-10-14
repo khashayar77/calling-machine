@@ -23,125 +23,125 @@
 
   </div>
   <div class="mat-elevation-z8" fxFlex="70">
-    <table [dataSource]="dataSource" flex-align="center" mat-table="mat-table" matSort="matSort">
+    <table [dataSource]="dataSource" flex-align="center" mat-table matSort>
       <!-- Customer_ID Column -->
-      <ng-container matColumnDef="Customer_ID">
-        <th *matHeaderCellDef="*matHeaderCellDef" mat-header-cell="mat-header-cell" mat-sort-header="mat-sort-header">
+      <ng-container *matColumnDef="Customer_ID">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header>
           Customer_ID
         </th>
-        <td *matCellDef="let element" mat-cell="mat-cell">
+        <td *matCellDef="let element" mat-cell>
           {{element.Customer_ID}}
         </td>
       </ng-container>
 
       <!-- Number Column -->
-      <ng-container matColumnDef="Number">
-        <th *matHeaderCellDef="*matHeaderCellDef" mat-header-cell="mat-header-cell" mat-sort-header="mat-sort-header">
+      <ng-container *matColumnDef="Number">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header>
           Number
         </th>
-        <td *matCellDef="let element" mat-cell="mat-cell">
+        <td *matCellDef="let element" mat-cell>
           {{element.Number}}
         </td>
       </ng-container>
 
 
       <!-- Department Column -->
-      <ng-container matColumnDef="Department">
-        <th *matHeaderCellDef="*matHeaderCellDef" mat-header-cell="mat-header-cell" mat-sort-header="mat-sort-header">
+      <ng-container *matColumnDef="Department">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header>
           Department
         </th>
-        <td *matCellDef="let element" mat-cell="mat-cell">
+        <td *matCellDef="let element" mat-cell>
           {{element.Department}}
         </td>
       </ng-container>
 
       <!-- URL_ID Column -->
-      <ng-container matColumnDef="URL_ID">
-        <th *matHeaderCellDef="*matHeaderCellDef" mat-header-cell="mat-header-cell" mat-sort-header="mat-sort-header">
+      <ng-container *matColumnDef="URL_ID">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header>
           URL_ID
         </th>
-        <td *matCellDef="let element" mat-cell="mat-cell">
+        <td *matCellDef="let element" mat-cell>
           {{element.URL_ID}}
         </td>
       </ng-container>
 
       <!-- Add_Date Column -->
-      <ng-container matColumnDef="Add_Date">
-        <th *matHeaderCellDef="*matHeaderCellDef" mat-header-cell="mat-header-cell" mat-sort-header="mat-sort-header">
+      <ng-container *matColumnDef="Add_Date">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header>
           Add_Date
         </th>
-        <td *matCellDef="let element" mat-cell="mat-cell">
+        <td *matCellDef="let element" mat-cell>
           {{element.Add_Date}}
         </td>
       </ng-container>
 
       <!-- Retry_Time Column -->
-      <ng-container matColumnDef="Retry_Time">
-        <th *matHeaderCellDef="*matHeaderCellDef" mat-header-cell="mat-header-cell" mat-sort-header="mat-sort-header">
+      <ng-container *matColumnDef="Retry_Time">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header>
           Retry_Time
         </th>
-        <td *matCellDef="let element" mat-cell="mat-cell">
+        <td *matCellDef="let element" mat-cell>
           {{element.Retry_Time}}
         </td>
       </ng-container>
 
       <!-- Lock_Call Column -->
-      <ng-container matColumnDef="Lock_Call">
-        <th *matHeaderCellDef="*matHeaderCellDef" mat-header-cell="mat-header-cell" mat-sort-header="mat-sort-header">
+      <ng-container *matColumnDef="Lock_Call">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header>
           Lock_Call
         </th>
-        <td *matCellDef="let element" mat-cell="mat-cell">
+        <td *matCellDef="let element" mat-cell>
           {{element.Lock_Call}}
         </td>
       </ng-container>
 
       <!-- Attempt Column -->
-      <ng-container matColumnDef="Attempt">
-        <th *matHeaderCellDef="*matHeaderCellDef" mat-header-cell="mat-header-cell" mat-sort-header="mat-sort-header">
+      <ng-container *matColumnDef="Attempt">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header>
           Attempt
         </th>
-        <td *matCellDef="let element" mat-cell="mat-cell">
+        <td *matCellDef="let element" mat-cell>
           {{element.Attempt}}
         </td>
       </ng-container>
 
       <!-- Call_Status Column -->
-      <ng-container matColumnDef="Call_Status">
-        <th *matHeaderCellDef="*matHeaderCellDef" mat-header-cell="mat-header-cell" mat-sort-header="mat-sort-header">
+      <ng-container *matColumnDef="Call_Status">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header>
           Call_Status
         </th>
-        <td *matCellDef="let element" mat-cell="mat-cell">
+        <td *matCellDef="let element" mat-cell>
           {{element.Call_Status}}
         </td>
       </ng-container>
 
       <!-- Call_Duration Column -->
-      <ng-container matColumnDef="Call_Duration">
-        <th *matHeaderCellDef="*matHeaderCellDef" mat-header-cell="mat-header-cell" mat-sort-header="mat-sort-header">
+      <ng-container *matColumnDef="Call_Duration">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header>
           Call_Duration
         </th>
-        <td *matCellDef="let element" mat-cell="mat-cell">
+        <td *matCellDef="let element" mat-cell>
           {{element.Call_Duration}}
         </td>
       </ng-container>
 
       <!-- Info1 Column -->
-      <ng-container matColumnDef="Info1">
-        <th *matHeaderCellDef="*matHeaderCellDef" mat-header-cell="mat-header-cell" mat-sort-header="mat-sort-header">
+      <ng-container *matColumnDef="Info1">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header>
           Info1
         </th>
-        <td *matCellDef="let element" mat-cell="mat-cell">
+        <td *matCellDef="let element" mat-cell>
           {{element.Info1}}
         </td>
       </ng-container>
 
 
       <!-- action Column -->
-      <ng-container matColumnDef="action">
-        <th *matHeaderCellDef="*matHeaderCellDef" mat-header-cell="mat-header-cell">
+      <ng-container *matColumnDef="action">
+        <th *matHeaderCellDef mat-header-cell>
           action
         </th>
-        <td *matCellDef="let element" mat-cell="mat-cell">
+        <td *matCellDef="let element" mat-cell>
           <button [routerLink]="['/department',element.id,'edit']" aria-label="Example icon-button with a delete icon"
             mat-icon-button="mat-icon-button">
             <mat-icon>delete</mat-icon>
