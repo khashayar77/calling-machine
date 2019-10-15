@@ -21,7 +21,8 @@ export class CallingListsComponent implements OnInit {
 		'Attempt',
 		'Call_Status',
 		'Call_Duration',
-		'Info1'
+		'Info1',
+		'Action'
 	];
 
 	@ViewChild(MatSort, { static: false })
