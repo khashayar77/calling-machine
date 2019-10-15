@@ -22,9 +22,9 @@ export class CallingListsComponent implements OnInit {
 		'Call_Status',
 		'Call_Duration',
 		'Info1',
-		'Action'
+		'action'
 	];
-
+	values = '';
 	@ViewChild(MatSort, { static: false })
 	sort: MatSort;
 
@@ -44,6 +44,14 @@ export class CallingListsComponent implements OnInit {
 	ngAfterViewInit(): void {
 		this.dataSource.sort = this.sort;
 	}
+	getValue(event: KeyboardEvent) {
+		this.values += (event.target as HTMLInputElement).value + ' | ';
+		console.log(this.values);
+	}
+
+	public doFilter = (value: string) => {
+		this.dataSource.filter = value.trim().toLocaleLowerCase();
+	};
 }
 
 const ELEMENT_DATA: CallResult[] = [

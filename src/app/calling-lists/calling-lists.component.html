@@ -1,12 +1,12 @@
 <div fxLayout="row" fxLayoutAlign="start center">
-  <div fxFlex="30">
+  <div fxFlex="15">
       <mat-card>
           <mat-card-header>
               <mat-card-subtitle>Search</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content fxLayout="row wrap">
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Customer_ID">
+                    <input matInput placeholder="Customer_ID" (keyup)="getValue($event.target.value)">
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
                     <input matInput placeholder="Number">
@@ -22,11 +22,11 @@
                 </mat-form-field>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-raised-button color="primary">Search</button>
+              <button mat-raised-button color="primary" (click)="onClickMe()">Search</button>
             </mat-card-actions>
       </mat-card>
   </div>
-  <div class="mat-elevation-z8" fxFlex="70">
+  <div class="mat-elevation-z8" fxFlex="85">
       <table mat-table [dataSource]="dataSource" matSort flex-align="center">
         <!-- Customer_ID Column -->
         <ng-container matColumnDef="Customer_ID" >
