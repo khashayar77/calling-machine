@@ -44,10 +44,6 @@ export class CallingListsComponent implements OnInit {
 	ngAfterViewInit(): void {
 		this.dataSource.sort = this.sort;
 	}
-	getValue(event: KeyboardEvent) {
-		this.values += (event.target as HTMLInputElement).value + ' | ';
-		console.log(this.values);
-	}
 
 	public doFilter = (value: string) => {
 		this.dataSource.filter = value.trim().toLocaleLowerCase();
