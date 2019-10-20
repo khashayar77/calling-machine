@@ -30,8 +30,8 @@ export class LoginComponent {
 		}
 
 		this.authService.login(this.formGroup.value).subscribe((user) => {
-			debugger;
 			this.snackbar.open('به پنل خوش آمدید', null, { duration: 2222 });
+			debugger;
 			this.router.navigate([ '/dashboard' ]);
 		});
 	}

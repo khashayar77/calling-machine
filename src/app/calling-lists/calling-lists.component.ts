@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { CallResult } from '../interfaces/CallResult';
 import { FormControl } from '@angular/forms';
+import { CallingService } from '../services/calling.service';
+import { CallRequest } from '../interfaces/call-request.interface';
 
 @Component({
 	selector: 'app-calling-lists',
@@ -10,7 +12,7 @@ import { FormControl } from '@angular/forms';
 	styleUrls: [ './calling-lists.component.scss' ]
 })
 export class CallingListsComponent implements OnInit {
-	dataSource = new MatTableDataSource<CallResult>(ELEMENT_DATA);
+	dataSource = new MatTableDataSource<CallRequest>();
 	displayedColumns: string[] = [
 		'Customer_ID',
 		'Number',
@@ -46,6 +48,12 @@ export class CallingListsComponent implements OnInit {
 	@ViewChild(MatPaginator, { static: true })
 	paginator: MatPaginator;
 
+	constructor(private callingService: CallingService) {
+		this.callingService
+			.query({ criteria: {}, pageNo: 0 })
+			.subscribe((callReqeusts) => (this.dataSource.data = callReqeusts));
+	}
+
 	ngOnInit() {
 		this.dataSource.paginator = this.paginator;
 
@@ -76,6 +84,24 @@ export class CallingListsComponent implements OnInit {
 		this.dataSource.filterPredicate = this.customFilterPredicate();
 	}
 
+	remove(item: CallRequest) {
+		debugger;
+		this.callingService.remove(item.ID).subscribe((res) => {
+			// this.sb
+			debugger;
+		});
+	}
+	search() {
+		this.callingService
+			.query({
+				criteria: {
+					Customer_ID: this.IdFilter.value
+				},
+				pageNo: 0
+			})
+			.subscribe((callReqeusts) => (this.dataSource.data = callReqeusts));
+	}
+
 	applyFilter(filterValue: string) {
 		this.dataSource.filter = filterValue.trim().toLowerCase();
 		this.dataSource.filter = filterValue;
@@ -99,32 +125,3 @@ export class CallingListsComponent implements OnInit {
 		this.dataSource.sort = this.sort;
 	}
 }
-
-const ELEMENT_DATA: CallResult[] = [
-	{
-		Customer_ID: 4585545,
-		Number: 9124756485,
-		Department: 'qm-pcs',
-		URL_ID: 75807,
-		Add_Date: new Date(2019, 7, 21),
-		Retry_Time: 180,
-		Lock_Call: 1,
-		Attempt: 0,
-		Call_Status: 1,
-		Call_Duration: 30,
-		Info1: ''
-	},
-	{
-		Customer_ID: 456478,
-		Number: 9124756487,
-		Department: 'qm-pc',
-		URL_ID: 757,
-		Add_Date: new Date(2019, 8, 12),
-		Retry_Time: 260,
-		Lock_Call: 0,
-		Attempt: 2,
-		Call_Status: 0,
-		Call_Duration: 50,
-		Info1: ''
-	}
-];

@@ -38,7 +38,13 @@ export class AuthService {
 	}
 
 	login({ username, password }: { username: string; password: string }): Observable<User> {
-		return this.http.post<User>(`${environment.server_ip}/login`, { username, password, returnSecureToken: true });
+		return this.http
+			.post<User>(`${environment.server_ip}/login`, { username, password, returnSecureToken: true })
+			.pipe(
+				map((resData) => {
+					return this.handleAuthentication(resData);
+				})
+			);
 	}
 
 	private handleAuthentication(userData: User) {
