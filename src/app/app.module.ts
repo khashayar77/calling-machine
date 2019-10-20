@@ -41,6 +41,7 @@ import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { Error404Component } from './error404/error404.component';
 import { AddDepartmentsComponent } from './add-departments/add-departments.component';
 import { UpListsComponent } from './up-lists/up-lists.component';
+import { AuthServiceMockInterceptor } from './mock-interceptors/http-error.interceptor';
 
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -100,6 +101,11 @@ export function HttpLoaderFactory(http: HttpClient) {
 		{
 			provide: HTTP_INTERCEPTORS,
 			useClass: HttpErrorInterceptor,
+			multi: true
+		},
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: AuthServiceMockInterceptor,
 			multi: true
 		}
 	],
