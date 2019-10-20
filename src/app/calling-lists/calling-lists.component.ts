@@ -9,6 +9,7 @@ import { List } from '../interfaces/list';
 	styleUrls: [ './calling-lists.component.scss' ]
 })
 export class CallingListsComponent implements OnInit {
+	// tslint:disable-next-line: no-use-before-declare
 	dataSource = new MatTableDataSource<List>(ELEMENT_DATA);
 	// tslint:disable-next-line: max-line-length
 	displayedColumns: string[] = [
@@ -23,12 +24,12 @@ export class CallingListsComponent implements OnInit {
 
 	selectedDepartment: List;
 
+	@ViewChild(MatPaginator, { static: true })
+	paginator: MatPaginator;
+
 	onselect(id: number) {
 		console.log(id);
 	}
-
-	@ViewChild(MatPaginator, { static: true })
-	paginator: MatPaginator;
 
 	ngOnInit() {
 		this.dataSource.paginator = this.paginator;
