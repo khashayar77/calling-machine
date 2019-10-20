@@ -93,10 +93,8 @@
       <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef> action </th>
           <td mat-cell *matCellDef="let element">
-              <button mat-icon-button aria-label="Example icon-button with a delete icon" [routerLink]="['/department',element.id,'edit']">
+              <button mat-icon-button aria-label="Example icon-button with a delete icon">
               <mat-icon>delete</mat-icon></button>
-              <button mat-icon-button aria-label="Example icon-button with a get_app icon" [routerLink]="['/department',element.id,'edit']">
-              <mat-icon>get_app</mat-icon></button>
           </td>
         </ng-container>
     
