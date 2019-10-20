@@ -1,12 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-<<<<<<< HEAD
-import { MatTableDataSource } from '@angular/material/table';
-import { List } from '../interfaces/list';
-=======
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { CallResult } from '../interfaces/CallResult';
->>>>>>> e78d1f841f5a24d6c9175298d7a2ffb8ed7a6530
+import { FormControl } from '@angular/forms';
 
 @Component({
 	selector: 'app-calling-lists',
@@ -14,29 +10,6 @@ import { CallResult } from '../interfaces/CallResult';
 	styleUrls: [ './calling-lists.component.scss' ]
 })
 export class CallingListsComponent implements OnInit {
-<<<<<<< HEAD
-  // tslint:disable-next-line: no-use-before-declare
-  dataSource = new MatTableDataSource<List>(ELEMENT_DATA);
-  // tslint:disable-next-line: max-line-length
-  displayedColumns: string[] = [
-    'CustomerID',
-    'department',
-    'URL_id',
-    'numberOfCall',
-    'numberOfDailed',
-    'status',
-    'action'
-  ];
-
-  selectedDepartment: List;
-
-  @ViewChild(MatPaginator, { static: true })
-  paginator: MatPaginator;
-
-  onselect(id: number) {
-    console.log(id);
-  }
-=======
 	dataSource = new MatTableDataSource<CallResult>(ELEMENT_DATA);
 	displayedColumns: string[] = [
 		'Customer_ID',
@@ -49,8 +22,17 @@ export class CallingListsComponent implements OnInit {
 		'Attempt',
 		'Call_Status',
 		'Call_Duration',
-		'Info1'
+		'Info1',
+		'action'
 	];
+
+	IdFilter = new FormControl();
+	NumberFilter = new FormControl();
+	DepartmentFilter = new FormControl();
+	AddDateFilter = new FormControl();
+	CallStatusFilter = new FormControl();
+
+	filteredValues = { Customer_ID: '', Number: '', Department: '', Add_Date: '', Call_Status: '' };
 
 	@ViewChild(MatSort, { static: false })
 	sort: MatSort;
@@ -60,13 +42,57 @@ export class CallingListsComponent implements OnInit {
 	onselect(id: number) {
 		console.log(id);
 	}
->>>>>>> e78d1f841f5a24d6c9175298d7a2ffb8ed7a6530
 
 	@ViewChild(MatPaginator, { static: true })
 	paginator: MatPaginator;
 
 	ngOnInit() {
 		this.dataSource.paginator = this.paginator;
+
+		this.IdFilter.valueChanges.subscribe((IdFilterValue) => {
+			this.filteredValues['Customer_ID'] = IdFilterValue;
+			this.dataSource.filter = JSON.stringify(this.filteredValues);
+		});
+
+		this.NumberFilter.valueChanges.subscribe((NumberFilterValue) => {
+			this.filteredValues['Number'] = NumberFilterValue;
+			this.dataSource.filter = JSON.stringify(this.filteredValues);
+		});
+
+		this.DepartmentFilter.valueChanges.subscribe((DepartmentFilterValue) => {
+			this.filteredValues['Department'] = DepartmentFilterValue;
+			this.dataSource.filter = JSON.stringify(this.filteredValues);
+		});
+		this.AddDateFilter.valueChanges.subscribe((AddDateFilterValue) => {
+			this.filteredValues['Add_Date'] = AddDateFilterValue;
+			this.dataSource.filter = JSON.stringify(this.filteredValues);
+		});
+
+		this.CallStatusFilter.valueChanges.subscribe((CallStatusFilterValue) => {
+			this.filteredValues['Call_Status'] = CallStatusFilterValue;
+			this.dataSource.filter = JSON.stringify(this.filteredValues);
+		});
+
+		this.dataSource.filterPredicate = this.customFilterPredicate();
+	}
+
+	applyFilter(filterValue: string) {
+		this.dataSource.filter = filterValue.trim().toLowerCase();
+		this.dataSource.filter = filterValue;
+	}
+
+	customFilterPredicate() {
+		const myFilterPredicate = function(data: CallResult, filter: string): boolean {
+			let searchString = JSON.parse(filter);
+			return (
+				data.Customer_ID.toString().trim().indexOf(searchString.Customer_ID) !== -1 &&
+				data.Number.toString().trim().indexOf(searchString.Number) !== -1 &&
+				data.Department.toString().trim().toLowerCase().indexOf(searchString.Department.toLowerCase()) !== -1 &&
+				data.Call_Status.toString().trim().indexOf(searchString.Call_Status) !== -1 &&
+				data.Add_Date.toString().trim().indexOf(searchString.Add_Date) !== -1
+			);
+		};
+		return myFilterPredicate;
 	}
 
 	ngAfterViewInit(): void {
@@ -74,25 +100,6 @@ export class CallingListsComponent implements OnInit {
 	}
 }
 
-<<<<<<< HEAD
-const ELEMENT_DATA: List[] = [
-  {
-    CustomerID: 1,
-    department: 'qm-pcs',
-    URL_id: 122,
-    numberOfCall: 1500,
-    numberOfDailed: 500,
-    status: 'run'
-  },
-  {
-    CustomerID: 2,
-    department: 'qm-pcs',
-    URL_id: 234,
-    numberOfCall: 3000,
-    numberOfDailed: 1000,
-    status: 'run'
-  }
-=======
 const ELEMENT_DATA: CallResult[] = [
 	{
 		Customer_ID: 4585545,
@@ -120,5 +127,4 @@ const ELEMENT_DATA: CallResult[] = [
 		Call_Duration: 50,
 		Info1: ''
 	}
->>>>>>> e78d1f841f5a24d6c9175298d7a2ffb8ed7a6530
 ];
