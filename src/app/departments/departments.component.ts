@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
 import { Department } from '../interfaces/department';
+import { DepartmentService } from '../services/department.service';
 
 @Component({
   selector: 'app-departments',
@@ -30,6 +30,22 @@ export class DepartmentsComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true })
   paginator: MatPaginator;
+
+
+  // tslint:disable-next-line: no-shadowed-variable
+  constructor(private DepartmentService: DepartmentService) {
+    this.DepartmentService.remove({ criteria: {}, pageNo: 0 }).subscribe((response: any) => {
+      this.dataSource.data = response;
+    });
+  }
+
+
+
+  remove(item: Department) {
+    debugger;
+    this.DepartmentService.remove(item.id).subscribe((res) => { });
+    debugger;
+  }
 
   onselect(id: number) {
     console.log(id);

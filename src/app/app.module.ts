@@ -7,22 +7,22 @@ import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-	MatSidenavModule,
-	MatCheckboxModule,
-	MatIconModule,
-	MatToolbarModule,
-	MatListModule,
-	MatSnackBarModule,
-	MatButtonModule,
-	MatCardModule,
-	MatFormFieldModule,
-	MatInputModule,
-	MatTableModule,
-	MatMenuModule,
-	MatSelectModule,
-	MatBottomSheetModule,
-	MatTooltipModule,
-	MatSortModule
+  MatSidenavModule,
+  MatCheckboxModule,
+  MatIconModule,
+  MatToolbarModule,
+  MatListModule,
+  MatSnackBarModule,
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatTableModule,
+  MatMenuModule,
+  MatSelectModule,
+  MatBottomSheetModule,
+  MatTooltipModule,
+  MatSortModule
 } from '@angular/material';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -41,68 +41,81 @@ import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { Error404Component } from './error404/error404.component';
 import { AddDepartmentsComponent } from './add-departments/add-departments.component';
 import { UpListsComponent } from './up-lists/up-lists.component';
-
+import { AuthServiceMockInterceptor } from './mock-interceptors/auth-service-mock.interceptor';
+import { CallRequestServiceMockInterceptor } from './mock-interceptors/call-request-service-mock.interceptor';
+import { DepartmentService } from './services/department.service';
 export function HttpLoaderFactory(http: HttpClient) {
-	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		ToolbarComponent,
-		LoginComponent,
-		DashboardComponent,
-		UplaodListComponent,
-		DepartmentsComponent,
-		CallingListsComponent,
-		DepartmentDetailComponent,
-		Error404Component,
-		AddDepartmentsComponent,
-		UpListsComponent
-	],
-	imports: [
-		BrowserModule,
-		AppRoutingModule,
-		FormsModule,
-		HttpClientModule,
-		BrowserAnimationsModule,
-		MatSidenavModule,
-		MatCheckboxModule,
-		MatSnackBarModule,
-		MatIconModule,
-		MatCardModule,
-		MatButtonModule,
-		MatToolbarModule,
-		MatTableModule,
-		MatInputModule,
-		MatFormFieldModule,
-		MatListModule,
-		FlexLayoutModule,
-		ReactiveFormsModule,
-		MatMenuModule,
-		MatSelectModule,
-		MatBottomSheetModule,
-		MatTooltipModule,
-		MatSortModule,
+  declarations: [
+    AppComponent,
+    ToolbarComponent,
+    LoginComponent,
+    DashboardComponent,
+    UplaodListComponent,
+    DepartmentsComponent,
+    CallingListsComponent,
+    DepartmentDetailComponent,
+    Error404Component,
+    AddDepartmentsComponent,
+    UpListsComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatCheckboxModule,
+    MatSnackBarModule,
+    MatIconModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatListModule,
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    MatMenuModule,
+    MatSelectModule,
+    MatBottomSheetModule,
+    MatTooltipModule,
+    MatSortModule,
 
-		TranslateModule.forRoot({
-			loader: {
-				provide: TranslateLoader,
-				useFactory: HttpLoaderFactory,
-				deps: [ HttpClient ]
-			}
-		}),
-		FormsModule,
-		FileUploadModule
-	],
-	providers: [
-		LogedInGuard,
-		{
-			provide: HTTP_INTERCEPTORS,
-			useClass: HttpErrorInterceptor,
-			multi: true
-		}
-	],
-	bootstrap: [ AppComponent ]
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    FormsModule,
+    FileUploadModule
+  ],
+  providers: [
+    LogedInGuard,
+    DepartmentService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthServiceMockInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CallRequestServiceMockInterceptor,
+      multi: true
+    }
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
