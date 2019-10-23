@@ -4,18 +4,18 @@ import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class DepartmentService {
-  constructor(private http: HttpClient) {
-    console.log('sdf');
-  }
+	constructor(private http: HttpClient) {
+		console.log('sdf');
+	}
 
-  // edit(DepartmentID): Observable<void> {
-  // 	return this.http.edit<void>(`${environment.server_ip}/departmentrequests/${DepartmentID}`);
-  // }
+	edit(DepartmentID): Observable<void> {
+		return this.http.edit<void>(`${environment.server_ip}/departmentrequests/${DepartmentID}`);
+	}
 
-  remove(DepartmentID): Observable<void> {
-    return this.http.delete<void>(`${environment.server_ip}/departmentrequests/ ${DepartmentID}`);
-  }
+	remove(DepartmentID): Observable<void> {
+		return this.http.delete<void>(`${environment.server_ip}/departmentrequests/ ${DepartmentID}`);
+	}
 }

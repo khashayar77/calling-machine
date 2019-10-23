@@ -7,9 +7,9 @@ import { Department } from '../interfaces/department.interface';
 
 // import { DepartmentService } from '../services/department.service';
 @Component({
-  selector: 'app-departments',
-  templateUrl: './departments.component.html',
-  styleUrls: ['./departments.component.scss']
+	selector: 'app-departments',
+	templateUrl: './departments.component.html',
+	styleUrls: [ './departments.component.scss' ]
 })
 export class DepartmentsComponent implements OnInit {
   // tslint:disable-next-line: no-use-before-declare
@@ -29,46 +29,48 @@ export class DepartmentsComponent implements OnInit {
     'action'
   ];
 
-  selectedDepartment: Department;
+	selectedDepartment: Department;
 
-  @ViewChild(MatPaginator, { static: true })
-  paginator: MatPaginator;
+	@ViewChild(MatPaginator, { static: true })
+	paginator: MatPaginator;
 
-  // tslint:disable-next-line: no-shadowed-variable
-  constructor(private DepartmentService: DepartmentService) {
-    this.DepartmentService.remove({ criteria: {}, pageNo: 0 }).subscribe((response: any) => {
-      this.dataSource.data = response;
+	// tslint:disable-next-line: no-shadowed-variable
+	constructor(private DepartmentService: DepartmentService) {
+		this.DepartmentService.remove({ criteria: {}, pageNo: 0 }).subscribe((response: any) => {
+			this.dataSource.data = response;
 
-      // this.DepartmentService.edit({ criteria: {}, pageNo: 0 }).subscribe((response: any) => {
-      // 	this.dataSource.data = response;
-      // });
-    });
-  }
+			this.DepartmentService.edit({ criteria: {}, pageNo: 0 }).subscribe((response: any) => {
+				this.dataSource.data = response;
+			});
+		});
+	}
 
-  remove(item: Department) {
-    // tslint:disable-next-line: no-debugger
-    debugger;
-    this.DepartmentService.remove(item.id).subscribe((res) => { debugger; });
-    // tslint:disable-next-line: no-debugger
-  }
+	remove(item: Department) {
+		// tslint:disable-next-line: no-debugger
+		debugger;
+		this.DepartmentService.remove(item.id).subscribe((res) => {});
+		// tslint:disable-next-line: no-debugger
+		debugger;
+	}
 
-  // edit(item: Department) {
-  // 	debugger;
-  // 	this.DepartmentService.edit(item.id).subscribe((res) => {});
+	edit(item: Department) {
+		debugger;
+		this.DepartmentService.edit(item.id).subscribe((res) => {});
 
-  // 	debugger;
-  // }
+		debugger;
+	}
 
-  onselect(id: number) {
-    console.log(id);
-  }
+	onselect(id: number) {
+		console.log(id);
+	}
 
-  ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-  }
+	ngOnInit() {
+		this.dataSource.paginator = this.paginator;
+	}
 }
 
 const ELEMENT_DATA: Department[] = [
+<<<<<<< HEAD
   {
     info: 'jafarian',
     id: 1,
@@ -143,4 +145,80 @@ const ELEMENT_DATA: Department[] = [
     call_more: 1,
     retry_time: 180
   }
+=======
+	{
+		info: 'jafarian',
+		id: 1,
+		priority: 7,
+		department: 'qm-pcs',
+		Unit: 'cts',
+		start_working_time: '8:00:00',
+		end_working_time: '17:50:00',
+		dialplan_context: 'calling-machine-cmqm1-start',
+		queue: 'cmqm1',
+		query_method: 'QS1',
+		call_more: 1,
+		retry_time: 180
+	},
+	{
+		info: 'jafarian',
+		id: 1,
+		priority: 7,
+		department: 'qm-pcs',
+		Unit: 'qm',
+		start_working_time: '8:00:00',
+		end_working_time: '17:50:00',
+		// nwd_table_id: 1,
+		dialplan_context: 'calling-machine-cmqm1-start',
+		queue: 'cmqm1',
+		query_method: 'QS1',
+		call_more: 1,
+		retry_time: 180
+	},
+	{
+		info: 'jafarian',
+		id: 2,
+		priority: 7,
+		department: 'qm-pcs',
+		Unit: 'pcs',
+		start_working_time: '8:00:00',
+		end_working_time: '17:50:00',
+		// nwd_table_id: 1,
+		dialplan_context: 'calling-machine-cmqm1-start',
+		queue: 'cmqm1',
+		query_method: 'QS1',
+		call_more: 1,
+		retry_time: 180
+	},
+	{
+		info: 'jafarian',
+		id: 3,
+		priority: 7,
+		department: 'qm-pcs',
+		Unit: 'qm',
+		start_working_time: '8:00:00',
+		end_working_time: '17:50:00',
+		// nwd_table_id: 1,
+		dialplan_context: 'calling-machine-cmqm1-start',
+		queue: 'cmqm1',
+		query_method: 'QS1',
+		call_more: 1,
+		retry_time: 180
+	},
+	{
+		info: 'jafarian',
+		id: 4,
+		priority: 7,
+		department: 'qm-pcs',
+		Unit: 'cts',
+		start_working_time: '8:00:00',
+		end_working_time: '17:50:00',
+		// nwd_table_id: 1,
+		dialplan_context: 'calling-machine-cmqm1-start',
+		queue: 'cmqm1',
+		query_method: 'QS1',
+		call_more: 1,
+		retry_time: 180
+	}
+>>>>>>> 146e46f8cd143af3b3b7d78303e1d65e3783e53b
 ];
