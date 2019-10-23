@@ -36,21 +36,20 @@ export class DepartmentsComponent implements OnInit {
 
 	// tslint:disable-next-line: no-shadowed-variable
 	constructor(private DepartmentService: DepartmentService) {
-		this.DepartmentService.remove({ criteria: {}, pageNo: 0 }).subscribe((response: any) => {
-			this.dataSource.data = response;
-
-			this.DepartmentService.edit({ criteria: {}, pageNo: 0 }).subscribe((response: any) => {
-				this.dataSource.data = response;
-			});
-		});
+		// this.DepartmentService.remove({ criteria: {}, pageNo: 0 }).subscribe((response: any) => {
+		// 	this.dataSource.data = response;
+		// 	this.DepartmentService.edit({ criteria: {}, pageNo: 0 }).subscribe((response: any) => {
+		// 		this.dataSource.data = response;
+		// 	});
+		// });
 	}
 
 	remove(item: Department) {
 		// tslint:disable-next-line: no-debugger
 		debugger;
-		this.DepartmentService.remove(item.id).subscribe((res) => {});
-		// tslint:disable-next-line: no-debugger
-		debugger;
+		this.DepartmentService.remove(item.id).subscribe((res) => {
+			debugger;
+		});
 	}
 
 	edit(item: Department) {
