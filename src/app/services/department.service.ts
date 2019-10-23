@@ -16,6 +16,6 @@ export class DepartmentService {
 	}
 
 	remove(DepartmentID): Observable<void> {
-		return this.http.delete<void>(`${environment.server_ip}/departmentrequests/ ${DepartmentID}`);
+		return this.http.delete<void>(`${environment.server_ip}/departmentrequests/${DepartmentID}`);
 	}
 }

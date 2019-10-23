@@ -55,9 +55,9 @@ export class DepartmentsComponent implements OnInit {
 
 	edit(item: Department) {
 		debugger;
-		this.DepartmentService.edit(item.id).subscribe((res) => {});
-
-		debugger;
+		this.DepartmentService.edit(item.id).subscribe((res) => {
+			debugger;
+		});
 	}
 
 	onselect(id: number) {
