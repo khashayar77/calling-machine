@@ -11,7 +11,11 @@ export class DepartmentService {
     console.log('sdf');
   }
 
+  // edit(DepartmentID): Observable<void> {
+  // 	return this.http.edit<void>(`${environment.server_ip}/departmentrequests/${DepartmentID}`);
+  // }
+
   remove(DepartmentID): Observable<void> {
-    return this.http.delete<void>(`${environment.server_ip}/departmentrequests/${DepartmentID}`);
+    return this.http.delete<void>(`${environment.server_ip}/departmentrequests/ ${DepartmentID}`);
   }
 }
