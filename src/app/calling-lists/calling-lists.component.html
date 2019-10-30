@@ -1,18 +1,17 @@
 <div fxLayout="row" fxLayoutAlign="space-around stretch">
-    <mat-card fxFlex="40" fxFill="70" dir="rtl">
+    <mat-card fxFlex="40" dir="rtl" style="height: 65px">
+      <mat-card-title style="width:58px"><mat-icon style="font-size:60px; margin-right:25px; margin-top:5px;" fxLayoutAlign="space-around center">search</mat-icon></mat-card-title>
       <mat-card-header>
-        <mat-card-title>{{ 'search' | translate }}</mat-card-title
-        ><br />
       </mat-card-header>
-      <mat-form-field fxFlex="80">
-        <input matInput placeholder="search..." type="text" />
+      <mat-form-field fxFlex="70">
+        <input matInput placeholder="انتخاب فیلتر..." type="text"/>
       </mat-form-field>
+      <button mat-raised-button class="btn" color="primary">جستجو</button>
     </mat-card>
   </div>
-  <br /><br /><br />
-
+  <br>
   <div fxLayout="row" fxLayoutAlign="center center">
-    <div class="mat-elevation-z8" fxFlex="85" fxFlex="grow">
+    <div class="mat-elevation-z8" fxFlex="85px" fxFlex="grow">
       <table mat-table [dataSource]="dataSource" matSort flex-align="center">
         <!-- Customer_ID Column -->
         <ng-container matColumnDef="Customer_ID">
